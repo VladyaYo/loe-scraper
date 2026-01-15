@@ -1,9 +1,10 @@
-version: "3.9"
-
 services:
   loe-scraper:
-    image: loe-scraper:latest
+    build: .               # ← вместо image: берём из текущей папки
     container_name: loe-scraper
     restart: "no"
     env_file:
       - .env
+    volumes:
+      - .:/app             # ← монтируем текущую папку → код всегда свежий
+    # command: ["python", "scraper.py"]   # можно оставить в Dockerfile, либо переопределить здесь
