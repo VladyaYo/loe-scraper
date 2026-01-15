@@ -12,6 +12,7 @@ STATE_FILE = "state/group_4_1_last.txt"
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 
+print("=== SCRAPER STARTED ===")
 
 async def get_group_4_1_text():
     async with async_playwright() as p:
@@ -75,7 +76,13 @@ async def main():
             f"Було:\n{previous_text}\n\n"
             f"{URL}"
         )
+        print("TEXT FOUND:", current_text)
+        print("SENDING MESSAGE TO TELEGRAM")
+
         send_telegram(message)
+
+        print("MESSAGE SENT")
+
         save_current(current_text)
 
 
