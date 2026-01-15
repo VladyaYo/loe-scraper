@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  loe-scraper:
+    image: loe-scraper:latest
+    container_name: loe-scraper
+    restart: "no"
+    env_file:
+      - .env
